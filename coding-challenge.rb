@@ -5,15 +5,17 @@ class FileParse
     array = []
 
     #get parsed data
-    html = File.open("files/van-gogh-paintings.html")
-    parsed_data = Nokogiri::HTML.parse(html).css(".mlo-c")
+    # html = File.open("files/leonardo-da-vinci-paintings.html")
+    #html = File.open("files/van-gogh-paintings.html")
+    html = File.open("files/michelangelo-paintings.html")
+    parsed_data = Nokogiri::HTML.parse(html).css(".EDblX").css("a")
 
     #asort into array
     parsed_data.each do |item|
       array.push({
-        name: item.css(".kltat").css("span").text,
+        name: item.css("span").text,
         extensions: ext_arr(item.css(".ellip")),
-        link: item.at_css(".klitem")["href"],
+        link: item["href"],
         image: item.at_css("img")["data-src"]
       })
     end
