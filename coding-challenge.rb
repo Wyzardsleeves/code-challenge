@@ -6,7 +6,7 @@ class FileParse
 
     #get parsed data
     # html = File.open("files/leonardo-da-vinci-paintings.html")
-    #html = File.open("files/van-gogh-paintings.html")
+    # html = File.open("files/van-gogh-paintings.html")
     html = File.open("files/michelangelo-paintings.html")
     parsed_data = Nokogiri::HTML.parse(html).css(".EDblX").css("a")
 
